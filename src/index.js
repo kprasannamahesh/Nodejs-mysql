@@ -20,7 +20,7 @@ app.get("/agenda", (req, res) => {
     }
   });
 });
-app.post('/Todo-Details',(req,res)=>{
+app.post('/details',(req,res)=>{
   const {id,description} = req.body;
   connection.query("INSERT INTO PERSONS (Id,description) VALUES (?,?)",[id,description],(err,result)=>{
     if (err) {
@@ -42,7 +42,7 @@ app.delete("/delete/:id", (req, res) => {
   });
 });
 
-app.put("/Todo/:id",(req,res)=>{
+app.put("/agenda/:id",(req,res)=>{
   const {id} = req.params;
   const {description} = req.body;
   connection.query(`update persons
